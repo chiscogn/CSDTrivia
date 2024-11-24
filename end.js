@@ -66,5 +66,5 @@ saveScoreForm.addEventListener('submit', (event) => {
   highScores.splice(MAX_HIGH_SCORES);
 
   localStorage.setItem('highScores', JSON.stringify(highScores));
-  window.location.assign('/'); 1  // Redirect to home page after saving
+  window.location.assign('/CSDTrivia'); 1  // Redirect to home page after saving
 });
