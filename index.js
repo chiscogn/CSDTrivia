@@ -1,6 +1,6 @@
 const categoryTable = {
   "Entertainment: Books" : 10,
-  "Technology" : 18,
+  //"Technology" : 18,
   "General Knowledge" : 9,
   "Entertainment: Film" : 11,
   "Entertainment: Music" : 12,
