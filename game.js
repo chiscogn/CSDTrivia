@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
       localStorage.setItem('mostRecentScore', score);
       // Go to the end page
-      return window.location.assign('/Samafraig/end.html');
+      return window.location.assign('/CSDTrivia/end.html');
     }
 
     questionCounter++;
