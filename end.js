@@ -4,6 +4,10 @@ const avatarList = document.getElementById('avatarList');
 const saveScoreBtn = document.getElementById('saveScoreBtn');
 const saveScoreForm = document.getElementById('saveScoreForm');
 
+// Use Luxon to get the current date in PST
+const { DateTime } = luxon;
+const today = DateTime.now().setZone("America/Los_Angeles").toISODate(); // Get current date in PST (YYYY-MM-DD)
+
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 const MAX_HIGH_SCORES = 5;
@@ -66,5 +70,5 @@ saveScoreForm.addEventListener('submit', (event) => {
   highScores.splice(MAX_HIGH_SCORES);
 
   localStorage.setItem('highScores', JSON.stringify(highScores));
-  window.location.assign('/CSDTrivia'); 1  // Redirect to home page after saving
+  window.location.assign('/Samafraig');  // Redirect to home page after saving
 });

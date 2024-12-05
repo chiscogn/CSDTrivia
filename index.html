@@ -13,11 +13,12 @@
         <h1>Questions of the day</h1>
         <div class="box">
           <a>
+           <div id="todaysDate" style="display: none;"></div>
             <p>Today's Category:</p>
             <p id="categoryName" class="flex-center flex-column"></p>
           </a>
         </div>
-        <a class="btn" href="/CSDTrivia/game.html">Play</a>
+        <a class="btn" href="/Samafraig/game.html">Play</a>
         <div>
           <h3>
             <p>Today's top 5 scores:</p>
@@ -25,6 +26,7 @@
           <ul id="highScoresList" class="flex-center flex-column"></ul>
         </div>
       </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.4.0/luxon.min.js"></script>
       <script src="highscores.js"></script>
       <script src="index.js"></script>
     </div>

@@ -1,13 +1,17 @@
+// Import Luxon (make sure to include the Luxon library in your HTML or project setup)
+// <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
+
+// Define category table for quiz categories
 const categoryTable = {
-  "Entertainment: Books" : 10,
-  //"Technology" : 18,
-  "General Knowledge" : 9,
-  "Entertainment: Film" : 11,
-  "Entertainment: Music" : 12,
-  "Entertainment: Television" : 14,
-  "Entertainment: Video Games" : 15,
-  "Science & Nature" : 17,
-  "Mythology" : 20,
+  "Entertainment: Books": 10,
+  "Technology": 18,
+  "General Knowledge": 9,
+  "Entertainment: Film": 11,
+  "Entertainment: Music": 12,
+  "Entertainment: Television": 14,
+  "Entertainment: Video Games": 15,
+  "Science & Nature": 17,
+  "Mythology": 20,
   "Sports": 21,
   "Geography": 22,
   "History": 23,
@@ -16,19 +20,37 @@ const categoryTable = {
   "Entertainment: Japanese Anime & Manga": 31,
 };
 
-// Retrieve the last category index and the last date from localStorage
 let lastCategoryIndex = parseInt(localStorage.getItem('lastCategoryIndex')) || 0;
 const lastDate = localStorage.getItem('lastDate');
 
-// Get today's date in YYYY-MM-DD format to compare with the stored date
-const today = new Date().toISOString().split('T')[0];
+// Use Luxon to get the current date in PST
+const { DateTime } = luxon;
+const pstNow = DateTime.now().setZone("America/Los_Angeles"); // Get current time in PST
+const today = pstNow.toISODate(); // Format as YYYY-MM-DD
 
-// Check if the date has changed since the last time
+// Update the date displayed on the page
+const todaysDateElement = document.getElementById('todaysDate');
+todaysDateElement.innerText = today;
+
+// Optional: Auto-refresh page for testing
+setTimeout(() => {
+  location.reload(); // Refresh after 15 seconds
+}, 15000);
+
+// Check if the day has changed
 if (lastDate !== today) {
-  // If the date is different, change the category and update the index
+  // Clear all localStorage except 'lastCategoryIndex'
+  const lastIndexBackup = localStorage.getItem('lastCategoryIndex'); // Backup lastCategoryIndex
+  localStorage.clear(); // Clear localStorage
+  localStorage.setItem('lastCategoryIndex', lastIndexBackup); // Restore lastCategoryIndex
+
+  // Update the date in localStorage
+  localStorage.setItem('lastDate', today);
+
+  // Increment category index and save
   lastCategoryIndex = (lastCategoryIndex + 1) % Object.keys(categoryTable).length; // Cycle through categories
-  localStorage.setItem('lastCategoryIndex', lastCategoryIndex); // Save the index
-  localStorage.setItem('lastDate', today); // Save the current date
+  localStorage.setItem('lastCategoryIndex', lastCategoryIndex);
+  location.reload(); // Reload the page
 }
 
 // Get the category from the updated index

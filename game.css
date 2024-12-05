@@ -6,9 +6,10 @@
     border: 0.0rem solid rgb(86, 165, 235, 0.25);
     background-color: white;
   }
+ 
   
-/*  
-.choice-container:hover {
+  /*
+  .choice-container:hover {
     cursor: pointer;
     box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
     transform: translateY(-0.1rem);
