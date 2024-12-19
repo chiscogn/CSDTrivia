@@ -10,13 +10,17 @@ const categoryTable = {
   "Entertainment: Music": 12,
   "Entertainment: Television": 14,
   "Entertainment: Video Games": 15,
+  "Entertainment: Board Games":16,
   "Science & Nature": 17,
   "Mythology": 20,
   "Sports": 21,
   "Geography": 22,
   "History": 23,
+  "Art": 25,
   "Celebrities": 26,
   "Animals": 27,
+  "Vehicles": 28,
+  "Gadgets": 30,
   "Entertainment: Japanese Anime & Manga": 31,
 };
 
